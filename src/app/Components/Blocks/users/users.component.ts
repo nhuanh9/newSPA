@@ -26,7 +26,7 @@ export class UsersComponent implements OnInit {
 
   login() {
     if (this.loginForm.get('username').value === this.user.username && this.loginForm.get('password').value === this.user.password) {
-      console.log('Hello');
+      alert('Hello!');
     }
   }
 }
