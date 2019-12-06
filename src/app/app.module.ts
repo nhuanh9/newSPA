@@ -7,13 +7,17 @@ import { MenuComponent } from './Components/Blocks/menu/menu.component';
 import { UsersComponent } from './Components/Blocks/users/users.component';
 import { HeaderComponent } from './Components/Blocks/header/header.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ListHouseComponent } from './Components/Pages/house/list-house/list-house.component';
+import { RegisterComponent } from './Components/Pages/users/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     UsersComponent,
-    HeaderComponent
+    HeaderComponent,
+    ListHouseComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
