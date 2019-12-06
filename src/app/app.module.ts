@@ -11,6 +11,7 @@ import { ListHouseComponent } from './Components/Pages/house/list-house/list-hou
 import { RegisterComponent } from './Components/Pages/users/register/register.component';
 import { CarouselComponent } from './Components/Blocks/carousel/carousel.component';
 import { FooterComponent } from './footer/footer.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FooterComponent } from './footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
