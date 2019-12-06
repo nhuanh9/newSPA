@@ -7,9 +7,10 @@ import {House} from '../../../../model/House';
   styleUrls: ['./list-house.component.scss']
 })
 export class ListHouseComponent implements OnInit {
-  listHouse: House[];
+  listHouse: number[];
 
   constructor() {
+    this.listHouse = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   }
 
   ngOnInit() {

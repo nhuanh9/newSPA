@@ -9,6 +9,7 @@ import { HeaderComponent } from './Components/Blocks/header/header.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ListHouseComponent } from './Components/Pages/house/list-house/list-house.component';
 import { RegisterComponent } from './Components/Pages/users/register/register.component';
+import { CarouselComponent } from './Components/Blocks/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { RegisterComponent } from './Components/Pages/users/register/register.co
     UsersComponent,
     HeaderComponent,
     ListHouseComponent,
-    RegisterComponent
+    RegisterComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,

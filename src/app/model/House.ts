@@ -9,5 +9,4 @@ export interface House {
   price: string;
   description: string;
   statusHouse?: boolean;
-
 }
