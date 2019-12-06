@@ -1,9 +1,9 @@
-<div class="card mt-3 ml-3 mr-2">
+<div class="card mt-3 ml-3 mr-2 login">
   <div class="card">
-    <div class="card-header">
+    <div class="card-header" style="background: lightgreen !important;">
       Login
     </div>
-    <div class="card-body">
+    <div class="card-body" style="background: lightgoldenrodyellow !important;">
       <!-- Login-->
       <form [formGroup]="loginForm">
 
@@ -15,8 +15,8 @@
           <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1" placeholder="Password">
         </div>
         <div class="row">
-          <button type="submit" class="btn btn-primary col-lg-5 ml-2  mt-3" (click)="login()">Login</button>
-          <button type="button" class="btn btn-primary nutPhai col-lg-5 ml-2  mt-3" routerLink="register">Register</button>
+          <button type="submit" class="btn btn-outline-success col-lg-5 ml-2  mt-3" (click)="login()">Login</button>
+          <button type="button" class="btn btn-outline-warning nutPhai col-lg-5 ml-2  mt-3" routerLink="register">Register</button>
         </div>
       </form>
     </div>
