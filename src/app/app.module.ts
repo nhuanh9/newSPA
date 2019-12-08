@@ -12,6 +12,7 @@ import { RegisterComponent } from './Components/Pages/users/register/register.co
 import { CarouselComponent } from './Components/Blocks/carousel/carousel.component';
 import { FooterComponent } from './Components/Blocks/footer/footer.component';
 import {HttpClientModule} from '@angular/common/http';
+import { DetailHouseComponent } from './Components/Pages/house/detail-house/detail-house.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {HttpClientModule} from '@angular/common/http';
     ListHouseComponent,
     RegisterComponent,
     CarouselComponent,
-    FooterComponent
+    FooterComponent,
+    DetailHouseComponent
   ],
   imports: [
     BrowserModule,
