@@ -14,3 +14,13 @@
 body{
   background: #e5f3ff !important;
 }
+
+
+@media only screen and (max-width: 600px) {
+  .login {
+    display: none !important;
+  }
+  .slide {
+    margin-top: 30px;
+  }
+}
