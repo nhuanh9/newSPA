@@ -29,4 +29,12 @@ export class DetailHouseComponent implements OnInit {
     });
   }
 
+  bookHouse() {
+    this.house.statusHouse = !this.house.statusHouse;
+    this.houseService.edit(this.house, this.house.idHouse).subscribe(() => {
+      console.log('Edit Thành công!');
+    }, error1 => {
+      console.log('Lỗi ' + error1);
+    });
+  }
 }

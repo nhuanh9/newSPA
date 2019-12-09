@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HouseService} from '../../../../Services/house/house.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-house',
@@ -8,7 +9,9 @@ import {HouseService} from '../../../../Services/house/house.service';
 })
 export class CreateHouseComponent implements OnInit {
 
-  constructor(private houseService: HouseService) { }
+  constructor(private houseService: HouseService,
+              private  router: Router) {
+  }
 
   ngOnInit() {
   }
@@ -17,6 +20,7 @@ export class CreateHouseComponent implements OnInit {
     this.houseService.create(houseForm.value).subscribe(() => {
       console.log('Thêm thành công!');
       houseForm.resetForm();
+      this.router.navigate(['/']);
     }, error1 => {
       console.log('Lỗi ' + error1);
     });
