@@ -1,0 +1,5 @@
+<form action="" #houseForm="ngForm" (ngSubmit)="createHouse(houseForm)" class="form-group">
+  <input type="text" ngModel name="title" placeholder="Title" class="form-control">
+  <input type="text" ngModel name="body" placeholder="Body" class="form-control">
+  <input type="submit" value="Add">
+</form>

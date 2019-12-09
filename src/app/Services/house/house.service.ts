@@ -21,15 +21,15 @@ export class HouseService {
   }
 
   detail(id: string): Observable<House> {
-    return this.http.get<House>(this.API_URL + `${id}`);
+    return this.http.get<House>(this.API_URL + `/${id}`);
   }
 
-  editBlog(house: House, id: string): Observable<House> {
-    return this.http.put<House>(this.API_URL + `${id}`, house);
+  edit(house: House, id: string): Observable<House> {
+    return this.http.put<House>(this.API_URL + `/${id}`, house);
   }
 
-  deleteBlog(id: string): Observable<House> {
-    return this.http.delete<House>(this.API_URL + `${id}`);
+  delete(id: string): Observable<House> {
+    return this.http.delete<House>(this.API_URL + `/${id}`);
   }
 
 }

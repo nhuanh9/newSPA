@@ -13,6 +13,7 @@ import { CarouselComponent } from './Components/Blocks/carousel/carousel.compone
 import { FooterComponent } from './Components/Blocks/footer/footer.component';
 import {HttpClientModule} from '@angular/common/http';
 import { DetailHouseComponent } from './Components/Pages/house/detail-house/detail-house.component';
+import { CreateHouseComponent } from './Components/Pages/house/create-house/create-house.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DetailHouseComponent } from './Components/Pages/house/detail-house/deta
     RegisterComponent,
     CarouselComponent,
     FooterComponent,
-    DetailHouseComponent
+    DetailHouseComponent,
+    CreateHouseComponent
   ],
   imports: [
     BrowserModule,

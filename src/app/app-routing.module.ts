@@ -15,7 +15,7 @@ const routes: Routes = [
     component: ListHouseComponent
   },
   {
-    path: 'detail-house',
+    path: 'detail-house/:id',
     component: DetailHouseComponent
   },
 ];

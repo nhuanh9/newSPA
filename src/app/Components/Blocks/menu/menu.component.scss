@@ -2,7 +2,7 @@
 
 .navbar {
   font-size: 20px;
-  background: lightgreen !important;
+  background: rgba(0,0,0,0.85) !important;
   border-radius: 0px 0px 25px 0px;
   -moz-border-radius: 0px 0px 25px 0px;
   -webkit-border-radius: 0px 0px 25px 0px;
@@ -10,5 +10,9 @@
 }
 
 .navbar * {
-  font-family: Lobster;
+  //font-family: Lobster;
+  color: #fffff7 !important;
+}
+.dropdown-menu > a{
+  color: black !important;
 }

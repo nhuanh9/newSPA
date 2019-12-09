@@ -8,17 +8,17 @@ import {HouseService} from '../../../../Services/house/house.service';
   styleUrls: ['./list-house.component.scss']
 })
 export class ListHouseComponent implements OnInit {
-  listHouse: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  // listHouse: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-  // listHouse: House[];
+  listHouse: House[];
 
   constructor(private houseService: HouseService) {
   }
 
   ngOnInit() {
-    // this.houseService.getList().subscribe(result => {
-    //   this.listHouse = result;
-    // });
+    this.houseService.getList().subscribe(result => {
+      this.listHouse = result;
+    });
   }
 
 }
