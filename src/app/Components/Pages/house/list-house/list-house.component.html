@@ -2,8 +2,8 @@
   <div class="col-xs-12 col-sm-6 col-lg-4 mt-3 house " style="padding-right: 0px;" *ngFor="let house of listHouse">
     <div class="thumbnail">
       <a [routerLink]="['detail-house', house.idHouse]">
-        <h1 class="booked" style=" " *ngIf="!house.statusHouse">Booked </h1>
         <img width="100%" height="220px" style="border-radius: 2px" src="{{house.imgUrls}}" class="imgProduct">
+        <h1 class="booked" style=" " *ngIf="!house.statusHouse">Booked </h1>
       </a>
       <div style="z-index: 2; position: inherit;">
         <div class="productName">
@@ -13,7 +13,7 @@
           {{house.price}}$
         </div>
         <div class="order">
-          <a [routerLink]="['detail-house', house.idHouse]" class="btn btn-success" style="width: 100px;">Detail</a>
+          <a [routerLink]="['detail-house', house.idHouse]" class="btn btn-outline-success" style="width: 100px;">Detail</a>
         </div>
       </div>
     </div>
