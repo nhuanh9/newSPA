@@ -2,6 +2,7 @@
   <div class="col-xs-12 col-sm-6 col-md-4 mt-3 house " style="padding-right: 0px;" *ngFor="let house of listHouse">
     <div class="thumbnail">
       <a [routerLink]="['detail-house', house.idHouse]">
+        <h1 class="booked" style=" " *ngIf="!house.statusHouse">Booked </h1>
         <img width="100%" height="220px" style="border-radius: 2px" src="{{house.imgUrls}}" class="imgProduct">
       </a>
       <div style="z-index: 2; position: inherit;">
