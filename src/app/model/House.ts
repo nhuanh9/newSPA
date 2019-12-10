@@ -1,5 +1,5 @@
 export interface House {
-  idHouse: string;
+  idHouse ?: string;
   nameHouse: string;
   categoryHouse: string;
   categoryRoom: string;
@@ -9,5 +9,5 @@ export interface House {
   price: string;
   description: string;
   statusHouse?: boolean;
-  imgUrls: string;
+  imgUrls?: string;
 }

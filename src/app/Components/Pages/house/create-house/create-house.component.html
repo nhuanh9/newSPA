@@ -5,67 +5,68 @@
       <h2>Create new House</h2>
     </div>
     <div class="card-body">
-      <form #houseForm="ngForm" (ngSubmit)="createHouse(houseForm)" class="form-group">
+      <form [formGroup]="createForm" (ngSubmit)="createHouse()" class="form-group">
         <div class="text-left">
           <label>House's Name</label>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" ngModel name="nameHouse" placeholder="Input your house name...">
+          <input type="text" class="form-control" formControlName="nameHouse" placeholder="Input your house name...">
         </div>
         <div class="text-left">
           <label>House Category</label>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" ngModel name="categoryHouse" placeholder="Type of house ....">
+          <input type="text" class="form-control" formControlName="categoryHouse" placeholder="Type of house ....">
         </div>
         <div class="text-left">
           <label>Room Category</label>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" ngModel name="categoryRoom"
+          <input type="text" class="form-control" formControlName="categoryRoom"
                  placeholder="Type of room ....">
         </div>
         <div class="text-left">
           <label>Address</label>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" ngModel name="address"
+          <input type="text" class="form-control" formControlName="address"
                  placeholder="Address ....">
         </div>
         <div class="text-left">
           <label>Amount Bathroom</label>
         </div>
         <div class="form-group">
-          <input type="number" class="form-control" ngModel name="amountBathRoom"
+          <input type="number" class="form-control" formControlName="amountBathRoom"
                  placeholder="Bathrooms ....">
         </div>
         <div class="text-left">
           <label>Amount Bedroom</label>
         </div>
         <div class="form-group">
-          <input type="number" class="form-control" ngModel name="amountBedRoom"
+          <input type="number" class="form-control" formControlName="amountBedRoom"
                  placeholder="Bedrooms ....">
         </div>
         <div class="text-left">
           <label>Price</label>
         </div>
         <div class="form-group">
-          <input type="number" class="form-control" ngModel name="price"
+          <input type="number" class="form-control" formControlName="price"
                  placeholder="Price ....">
         </div>
         <div class="text-left">
           <label>Description</label>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" ngModel name="description"
+          <input type="text" class="form-control" formControlName="description"
                  placeholder="Description ....">
         </div>
         <div class="text-left">
           <label>Image Link</label>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" ngModel name="imgUrls"
-                 placeholder="Image Link ....">
+<!--          <input type="text" class="form-control" ngModel name="imgUrls"-->
+<!--                 placeholder="Image Link ....">-->
+          <input type="file" class="form-control" (change)="saveImg($event)">
         </div>
         <input type="submit" class="btn btn-success mr-2" value="Create">
         <button type="button" class="btn btn-warning " routerLink="">Cancel</button>
