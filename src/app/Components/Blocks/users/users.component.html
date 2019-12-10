@@ -1,6 +1,6 @@
-<div class="card mt-3 ml-3 mr-3 login">
+<div class="card mt-2 ml-2 mr-2 login">
   <div class="card">
-    <div class="card-header" style="background: lightgreen !important;">
+    <div class="card-header" style="background: #a5541b !important; color: white !important;">
       Login
     </div>
     <div class="card-body" style="background: #ffffff !important;">
@@ -17,8 +17,8 @@
                  placeholder="Password">
         </div>
         <div class="row ml-2 mr-2">
-          <button type="submit" class="btn btn-outline-success col-lg-5 ml-2  mt-3" (click)="login()">Login</button>
-          <button type="button" class="btn btn-outline-warning nutPhai col-lg-5 ml-2  mt-3" data-toggle="modal"
+          <button type="submit" class="btn btn-outline-secondary col-lg-5 ml-1  mt-2" (click)="login()">Login</button>
+          <button type="button" class="btn btn-outline-danger nutPhai col-lg-5 ml-1  mt-2" data-toggle="modal"
                   data-target="#exampleModal">Register
           </button>
         </div>
@@ -28,28 +28,28 @@
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true" >
-  <div class="modal-dialog" role="document" style="background: lightgoldenrodyellow !important; border-radius: 5px">
+  <div class="modal-dialog" role="document" style="background: white !important; border-radius: 5px; color: white !important;">
     <div class="modal-content">
-      <div class="modal-header" style="background: lightgreen !important;">
+      <div class="modal-header" style="background: #a5541b !important;">
         <h5 class="modal-title" id="exampleModalLabel">Register</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body m-3" >
+      <div class="modal-body m-3" style="color: black" >
         <form action="">
           <div class="text-left"><label>Username</label></div>
-          <div class="form-group"><input type="text" class="form-control"></div>
+          <div class="form-group"><input type="text" class="form-control"  placeholder="Input anything...."></div>
           <div class="text-left"><label>Password</label></div>
-          <div class="form-group"><input type="text" class="form-control"></div>
+          <div class="form-group"><input type="text" class="form-control"  placeholder="Input anything...."></div>
           <div class="text-left"><label>First Name</label></div>
-          <div class="form-group"><input type="text" class="form-control"></div>
+          <div class="form-group"><input type="text" class="form-control" placeholder="Input anything...."></div>
           <div class="text-left"><label>Last Name</label></div>
-          <div class="form-group"><input type="text" class="form-control"></div>
+          <div class="form-group"><input type="text" class="form-control" placeholder="Input anything...."></div>
           <div class="text-left"><label>Email</label></div>
-          <div class="form-group"><input type="text" class="form-control"></div>
+          <div class="form-group"><input type="text" class="form-control" placeholder="Input anything...."></div>
           <div class="text-center">
-            <button type="button" class="btn btn-success" routerLink="">Register</button>
+            <button type="button" class="btn btn-outline-secondary" routerLink="">Register</button>
           </div>
         </form>
       </div>
