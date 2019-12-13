@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {MenuComponent} from './Components/Blocks/menu/menu.component';
-import {UsersComponent} from './Components/Blocks/users/users.component';
+import {UsersComponent} from './Components/Blocks/login/users.component';
 import {HeaderComponent} from './Components/Blocks/header/header.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ListHouseComponent} from './Components/Pages/house/list-house/list-house.component';
