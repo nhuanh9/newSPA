@@ -48,13 +48,13 @@
           </ul>
         </div>
       </div>
-      <div class="row mt-3">
+      <div class="row mt-1">
         <p class="col-sm-11"><b>Địa chỉ:</b> {{house.address}}</p>
       </div>
-      <div class="row mt-3">
+      <div class="row mt-1">
         <p class="col-sm-11"><b>Loại nhà:</b> {{house.categoryHouse}}</p>
       </div>
-      <div class="row mt-3 ml-2 ">
+      <div class="row mt-1 ml-2 mb-2">
         <button (click)="bookHouse()" class="btn btn-secondary" *ngIf="house.statusHouse">Đặt</button>
         <div class="alert alert-warning" role="alert" *ngIf="!house.statusHouse">
           Không có sẵn
@@ -62,7 +62,7 @@
       </div>
     </div>
   </div>
-  <div class="row mt-3 mr-3 ml-5 mb-3">
+  <div class="row mt-1 mr-3 ml-5 mb-3">
     <h4><b>Miêu Tả: </b></h4>
     <ul>
       <li>
@@ -71,7 +71,7 @@
     </ul>
 
   </div>
-  <div class="row mt-3 mr-3 ml-5 mb-3">
+  <div class="row mt-1 mr-3 ml-5 mb-3">
     <h4><b>Thông tin: </b></h4>
     <ul>
       <li><h5>Số lượng phòng tắm: {{house.amountBathRoom}}</h5></li>
