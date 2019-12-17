@@ -13,11 +13,9 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="create-house">Tạo mới </a>
       </li>
-<!--      <li class="nav-item showRegister" style="display: none">-->
-<!--        <a class="nav-link" data-toggle="modal"-->
-<!--                data-target="#exampleModal">Register-->
-<!--        </a>-->
-<!--      </li>-->
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="[{ outlets: { carousel: ['carousel'] } }]">Show Second Carousel</a>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <button type="button" class="btn btn-outline-light mr-sm-2 " data-toggle="modal"
