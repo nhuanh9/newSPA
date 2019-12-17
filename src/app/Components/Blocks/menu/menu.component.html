@@ -8,39 +8,81 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href=""> Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href=""> Trang chủ <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="create-house">Create House</a>
+        <a class="nav-link" routerLink="create-house">Tạo mới </a>
       </li>
-      <li class="nav-item showRegister" style="display: none">
-        <a class="nav-link" data-toggle="modal"
-                data-target="#exampleModal">Register
-        </a>
-      </li>
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link disabled" routerLink="">Hot</a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link disabled" routerLink="">Top Stay</a>-->
-<!--      </li>-->
-<!--      <li class="nav-item dropdown">-->
-<!--        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"-->
-<!--           aria-haspopup="true" aria-expanded="false">-->
-<!--          Top Place-->
+<!--      <li class="nav-item showRegister" style="display: none">-->
+<!--        <a class="nav-link" data-toggle="modal"-->
+<!--                data-target="#exampleModal">Register-->
 <!--        </a>-->
-<!--        <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-<!--          <a class="dropdown-item" href="#">Ha Noi</a>-->
-<!--          <a class="dropdown-item" href="#">Ho Chi Minh</a>-->
-<!--&lt;!&ndash;          <div class="dropdown-divider"></div>&ndash;&gt;-->
-<!--          <a class="dropdown-item" href="#">Da Nang</a>-->
-<!--          <a class="dropdown-item" href="#">Lao Cai</a>-->
-<!--        </div>-->
 <!--      </li>-->
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button type="button" class="btn btn-outline-light">Search</button>
+      <button type="button" class="btn btn-outline-light mr-sm-2 " data-toggle="modal"
+              data-target="#exampleModa2">Login</button>
+      <button type="button" class="btn btn-outline-light"  data-toggle="modal"
+              data-target="#exampleModal">Register</button>
     </form>
   </div>
 </nav>
+<div class="modal fade" id="exampleModa2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true" >
+  <div class="modal-dialog" role="document" style="background: white !important; border-radius: 5px; color: white !important;">
+    <div class="modal-content">
+      <div class="modal-header" style="background: #a5541b !important;">
+        <h5 class="modal-title" id="exampleModalLabe2">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body m-3" style="color: black" >
+        <form action="">
+          <div class="text-left"><label>Username</label></div>
+          <div class="form-group"><input type="text" class="form-control"  placeholder="Input anything...."></div>
+          <div class="text-left"><label>Password</label></div>
+          <div class="form-group"><input type="text" class="form-control"  placeholder="Input anything...."></div>
+          <div class="text-center">
+            <button type="button" class="btn btn-outline-secondary" routerLink="">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true" >
+  <div class="modal-dialog" role="document" style="background: white !important; border-radius: 5px; color: white !important;">
+    <div class="modal-content">
+      <div class="modal-header" style="background: #a5541b !important;">
+        <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body m-3" style="color: black" >
+        <form action="">
+          <div class="text-left"><label>Username</label></div>
+          <div class="form-group"><input type="text" class="form-control"  placeholder="Input anything...."></div>
+          <div class="text-left"><label>Password</label></div>
+          <div class="form-group"><input type="text" class="form-control"  placeholder="Input anything...."></div>
+          <div class="text-left"><label>First Name</label></div>
+          <div class="form-group"><input type="text" class="form-control" placeholder="Input anything...."></div>
+          <div class="text-left"><label>Last Name</label></div>
+          <div class="form-group"><input type="text" class="form-control" placeholder="Input anything...."></div>
+          <div class="text-left"><label>Email</label></div>
+          <div class="form-group"><input type="text" class="form-control" placeholder="Input anything...."></div>
+          <div class="text-center">
+            <button type="button" class="btn btn-outline-secondary" routerLink="">Register</button>
+          </div>
+        </form>
+      </div>
+      <!--      <div class="modal-footer">-->
+      <!--        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+      <!--        <button type="button" class="btn btn-primary">Save changes</button>-->
+      <!--      </div>-->
+    </div>
+  </div>
+</div>

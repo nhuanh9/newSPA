@@ -1,42 +1,15 @@
+.order-in-detail {
+  -webkit-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.75);
+}
+.info-house {
+  //border-radius: 5px 5px 5px 5px;
+  //-moz-border-radius: 5px 5px 5px 5px;
+  //-webkit-border-radius: 5px 5px 5px 5px;
+  //border: 1px solid #000000;
+  //background: rgba(0,0,0,0.01);
+}
 .detail {
-  //border: 5px lightgreen solid;
-  border-radius: 5px;
-  background: #ffffff;
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-}
-
-#carouselExampleCaptions1 img {
-  border-radius: 53px 5px 64px 5px;
-  -moz-border-radius: 53px 5px 64px 5px;
-  -webkit-border-radius: 53px 5px 64px 5px;
-  border: 0px solid #000000;
-}
-@import url('https://fonts.googleapis.com/css?family=Concert+One|Great+Vibes&display=swap');
-.detail p, .about{
-  //font-family: Concert One;
-  -webkit-box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.5);
-  border-left: 3px solid rgba(0, 0, 0, 0.15);
-  border-top: 3px solid rgba(0, 0, 0, 0.15);
-  border-bottom-right-radius: 20px;
-}
-@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
-.detail h2 {
-  //font-family: Lobster;
-  text-shadow: 3px 2px rgba(0, 0, 0, 0.1);
-}
-i{
-  text-shadow: 3px 2px rgba(0, 0, 0, 0.3);
-}
-.about p{
-  //font-family: Concert One;
-  -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.65);
-  -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.65);
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.65);
-  border-left: 0px solid rgba(0, 0, 0, 0.15);
-  border-top: 0px solid rgba(0, 0, 0, 0.15);
   font-size: 20px;
 }
