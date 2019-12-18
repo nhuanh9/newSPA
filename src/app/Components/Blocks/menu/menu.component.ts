@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {House} from '../../../model/House';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {HouseService} from '../../../Services/house/house.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -6,10 +10,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
+  loginForm: FormGroup;
+  registerForm: FormGroup;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private  router: Router,
+              private fb: FormBuilder) {
   }
 
+  ngOnInit() {
+
+  }
+
+  login() {
+  }
+
+  register() {
+
+  }
 }
