@@ -6,7 +6,7 @@
     </div>
     <div class="card-body">
       <!-- Login-->
-      <form [formGroup]="registerForm" >
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
         <div class="text-left">
           <label>Username</label>
         </div>
@@ -43,8 +43,7 @@
           <input type="email" class="form-control" formControlName="email" id="exampleInputEmail"
                  placeholder="Email">
         </div>
-        <button type="button" class="btn btn-success nutPhai mr-2" routerLink="register">Register</button>
-        <button type="button" class="btn btn-warning nutPhai" routerLink="">Cancel</button>
+        <button type="submit" class="btn btn-success nutPhai mr-2" routerLink="register">Register</button>
       </form>
     </div>
   </div>
