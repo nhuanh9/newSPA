@@ -5,12 +5,17 @@ import {ListHouseComponent} from './Components/Pages/house/list-house/list-house
 import {DetailHouseComponent} from './Components/Pages/house/detail-house/detail-house.component';
 import {CreateHouseComponent} from './Components/Pages/house/create-house/create-house.component';
 import {CarouselComponent} from './Components/Blocks/carousel/carousel.component';
+import {LoginComponent} from './Components/Pages/users/login/login.component';
 
 
 const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '',
