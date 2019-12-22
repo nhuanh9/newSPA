@@ -17,6 +17,8 @@ import {CreateHouseComponent} from './Components/Pages/house/create-house/create
 import {environment} from '../environments/environment';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
+import { LoginComponent } from './Components/Pages/users/login/login.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
     CarouselComponent,
     FooterComponent,
     DetailHouseComponent,
-    CreateHouseComponent
+    CreateHouseComponent,
+    LoginComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
