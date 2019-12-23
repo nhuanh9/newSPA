@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {UserService} from '../../../../Services/user.service';
 import {UserHouse} from '../../../../model/userHouse';
+import {forEachComment} from 'tslint';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private userService: UserService) {
+  constructor(private fb: FormBuilder, private userService: UserService, private  router: Router) {
   }
 
   ngOnInit() {
@@ -25,6 +27,15 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-
+    this.users.forEach((user) => {
+      if (user.username === this.loginForm.get('username').value) {
+        if (user.password === this.loginForm.get('password').value) {
+          alert('Hello ' + user.firstName);
+          this.router.navigate(['/']);
+        } else {
+          alert('Sai mat khau!');
+        }
+      }
+    });
   }
 }
