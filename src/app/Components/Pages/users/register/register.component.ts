@@ -39,6 +39,8 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
+    this.transferFormData();
+    // console.log(this.user);
     this.userService.createUser(this.user);
     alert('Dang ki thanh cong!');
     this.router.navigate(['/login']);
