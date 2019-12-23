@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {House} from '../../../model/House';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {HouseService} from '../../../Services/house/house.service';
+import {HouseService} from '../../../Services/house.service';
 import {Router} from '@angular/router';
 
 @Component({

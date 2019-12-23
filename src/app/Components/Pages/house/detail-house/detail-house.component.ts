@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {House} from '../../../../model/House';
 import {Subscription} from 'rxjs';
-import {HouseService} from '../../../../Services/house/house.service';
+import {HouseService} from '../../../../Services/house.service';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({

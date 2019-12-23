@@ -18,7 +18,6 @@ import {environment} from '../environments/environment';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import { LoginComponent } from './Components/Pages/users/login/login.component';
-import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +31,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
     FooterComponent,
     DetailHouseComponent,
     CreateHouseComponent,
-    LoginComponent,
-    SignInComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
