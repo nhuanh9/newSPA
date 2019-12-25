@@ -17,6 +17,8 @@ export class ListHouseComponent implements OnInit {
   ngOnInit() {
     this.houseService.getList().subscribe(result => {
       this.listHouse = result;
+    }, error => {
+      console.log('Loi!');
     });
   }
 

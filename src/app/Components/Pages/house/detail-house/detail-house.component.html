@@ -1,17 +1,17 @@
 <div class="row m-3 detail">
   <div class="col-md-8">
-    <img width="100%" src="{{house.imgUrls}}" class="imgProduct">
+    <img width="100%" src="{{house.imageUrls}}" class="imgProduct">
 
   </div>
   <div class="col-md-4">
     <div class="order-in-detail">
       <div class="m-3">
         <b><h2>{{house.nameHouse}}</h2></b>
-        <p><b>{{house.price}}$</b>/đêm</p>
-        <button (click)="bookHouse()" class="btn btn-secondary mb-3" *ngIf="house.statusHouse">Đặt</button>
-        <div class="alert alert-warning mb-3" role="alert" *ngIf="!house.statusHouse">
-          Không có sẵn.
-        </div>
+        <p><b>100$</b>/đêm</p>
+<!--        <button (click)="bookHouse()" class="btn btn-secondary mb-3" *ngIf="house.statusHouse">Đặt</button>-->
+<!--        <div class="alert alert-warning mb-3" role="alert" *ngIf="!house.statusHouse">-->
+<!--          Không có sẵn.-->
+<!--        </div>-->
       </div>
     </div>
     <div class="info-house mt-3">
@@ -19,7 +19,7 @@
         <p>Địa chỉ: {{house.address}}</p>
         <p>Số lượng phòng tắm: {{house.amountBathRoom}}</p>
         <p>Số lượng phòng ngủ: {{house.amountBedRoom}}</p>
-        <p>Loại nhà: {{house.categoryHouse}}</p>
+<!--        <p>Loại nhà: {{house.categoryHouse}}</p>-->
         <p>Mô tả: {{house.description}}</p>
       </div>
     </div>

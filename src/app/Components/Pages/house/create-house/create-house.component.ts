@@ -5,6 +5,10 @@ import * as firebase from 'firebase';
 import {AngularFireDatabase} from '@angular/fire/database';
 import {House} from '../../../../model/House';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {CategoryHouse} from '../../../../model/categoryHouse';
+import {CategoryRoom} from '../../../../model/categoryRoom';
+import {CategoryHouseService} from '../../../../Services/category-house.service';
+import {CategoryRoomService} from '../../../../Services/category-room.service';
 
 @Component({
   selector: 'app-create-house',
@@ -16,11 +20,16 @@ export class CreateHouseComponent implements OnInit {
   house: House;
   arrayPicture = '';
   createForm: FormGroup;
+  listCategoryRoom: CategoryRoom[];
+  listCategoryHouse: CategoryHouse[];
 
   constructor(private houseService: HouseService,
               private  router: Router,
               private db: AngularFireDatabase,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private categoryHouse: CategoryHouseService,
+              private categoryRoom: CategoryRoomService,
+  ) {
   }
 
   ngOnInit() {
@@ -34,6 +43,12 @@ export class CreateHouseComponent implements OnInit {
       price: ['', [Validators.required]],
       description: ['', [Validators.required]]
     });
+    this.categoryHouse.getList().subscribe(next => {
+      this.listCategoryHouse = next;
+    });
+    this.categoryRoom.getList().subscribe(next => {
+      this.listCategoryRoom = next;
+    });
   }
 
   transferFormData() {
@@ -44,10 +59,10 @@ export class CreateHouseComponent implements OnInit {
       address: this.createForm.get('address').value,
       amountBathRoom: this.createForm.get('amountBathRoom').value,
       amountBedRoom: this.createForm.get('amountBedRoom').value,
-      price: this.createForm.get('price').value,
+      price: null,
       description: this.createForm.get('description').value,
       statusHouse: true,
-      imgUrls: this.arrayPicture
+      imageUrls: this.arrayPicture
     };
   }
 
