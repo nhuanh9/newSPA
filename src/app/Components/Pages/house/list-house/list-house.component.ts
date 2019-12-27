@@ -11,6 +11,7 @@ export class ListHouseComponent implements OnInit {
   // listHouse: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   listHouse: House[];
+  nameHouse: string[];
   constructor(private houseService: HouseService) {
   }
 

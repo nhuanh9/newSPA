@@ -1,3 +1,4 @@
+<app-carousel></app-carousel>
 <div class="row ml-2 mr-3">
   <div class="col-xs-6 col-sm-4 col-lg-3 mt-3 house " style="padding-right: 0px;" *ngFor="let house of listHouse">
     <div class="thumbnail">
@@ -7,7 +8,7 @@
       </a>
       <div style="z-index: 2; position: inherit;">
         <div class="productName">
-          <a [routerLink]="['detail-house', house.id]" style="color: #000000;">{{house.nameHouse}}</a>
+          <a [routerLink]="['detail-house', house.id]" style="color: #000000;">{{house.nameHouse.split(' ')[0]}}</a>
         </div>
         <div class="price">
 <!--          {{house.price}}$-->
