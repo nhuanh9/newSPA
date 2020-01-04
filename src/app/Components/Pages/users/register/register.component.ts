@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {element} from 'protractor';
 import {UserHouse} from '../../../../model/userHouse';
 import {UserService} from '../../../../Services/user.service';
 import {Router} from '@angular/router';
+import {User} from '../../../../model/user';
 
 @Component({
   selector: 'app-register',
@@ -11,38 +12,43 @@ import {Router} from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  users: UserHouse[];
-  user: UserHouse;
-  registerForm: FormGroup;
+  successMessage = '';
+  failMessage = '';
+  registerForm: FormGroup = new FormGroup({
+    username: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
+    confirmPassword: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
+    firstName: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    lastName: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    gender: new FormControl(true, Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    phoneNumber: new FormControl('', Validators.required),
+  });
 
-  constructor(private fb: FormBuilder, private userService: UserService, private  router: Router) {
+  constructor(private userService: UserService,
+              private router: Router) {
   }
 
   ngOnInit() {
-    this.registerForm = this.fb.group({
-      username: [''],
-      password: [''],
-      firstName: [''],
-      lastName: ['']
-    });
-    this.users = this.userService.getList();
-  }
-
-  transferFormData() {
-    this.user = {
-      username: this.registerForm.get('username').value,
-      password: this.registerForm.get('password').value,
-      firstName: this.registerForm.get('firstName').value,
-      lastName: this.registerForm.get('lastName').value,
-      role: 'user'
-    };
   }
 
   register() {
-    this.transferFormData();
-    // console.log(this.user);
-    this.userService.createUser(this.user);
-    alert('Dang ki thanh cong!');
-    this.router.navigate(['/login']);
+    const user: User = {
+      id: this.registerForm.value.id,
+      username: this.registerForm.value.username,
+      password: this.registerForm.value.password,
+      confirmPassword: this.registerForm.value.confirmPassword,
+      firstName: this.registerForm.value.firstName,
+      lastName: this.registerForm.value.lastName,
+      gender: this.registerForm.value.gender,
+      email: this.registerForm.value.email,
+      phoneNumber: this.registerForm.value.phoneNumber
+    };
+    this.userService.register(user).subscribe(() => {
+      this.successMessage = 'Đăng ký thành công';
+      this.registerForm.reset();
+    }, () => {
+      this.failMessage = 'Đăng ký thất bại';
+    });
   }
 }

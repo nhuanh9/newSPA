@@ -7,16 +7,11 @@ import {Router} from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'frontend';
-  href: string;
-  showCarousel: boolean;
+  title = 'Frontend';
 
   constructor(private route: Router) {
   }
 
   ngOnInit(): void {
-    this.href = this.route.url;
-    console.log(this.href);
-    this.showCarousel = true;
   }
 }
