@@ -10,35 +10,6 @@ import {UserHouse} from '../model/userHouse';
 export class UserService {
   users: UserHouse[];
 
-  constructor() {
-    this.users = [
-      {
-        id: 1,
-        username: 'nhuanh',
-        password: '123456',
-        firstName: 'Dao Nhu Anh',
-        lastName: 'Louis',
-        role: 'user',
-      },
-      {
-        id: 2,
-        username: 'nhuanh1',
-        password: '123456',
-        firstName: 'VI',
-        lastName: 'Louis',
-        role: 'user',
-      },
-      {
-        id: 3,
-        username: 'nhuanh2',
-        password: '123456',
-        firstName: 'Nhu Anh',
-        lastName: 'Louis',
-        role: 'user',
-      },
-    ];
-  }
-
   getList() {
     return this.users;
   }
