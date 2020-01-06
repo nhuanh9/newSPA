@@ -14,10 +14,12 @@ export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<UserToken>;
   public currentUser: Observable<UserToken>;
   update = new EventEmitter<string>();
+
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<UserToken>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
+
   public get currentUserValue(): UserToken {
     return this.currentUserSubject.value;
   }
@@ -27,6 +29,7 @@ export class AuthenticationService {
       .pipe(map(user => {
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
+        this.update.emit('login');
         return user;
       }));
   }
