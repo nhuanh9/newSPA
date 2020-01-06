@@ -30,10 +30,10 @@ const routes: Routes = [
     component: CreateHouseComponent
   },
   {
-    path: 'carousel',
-    component: CarouselComponent,
-    outlet: 'carousel'
+    path: 'search-house',
+    loadChildren: () => import('./Components/Pages/house/search/components/user/user.module').then(module => module.UserModule)
   }
+
 ];
 
 @NgModule({
