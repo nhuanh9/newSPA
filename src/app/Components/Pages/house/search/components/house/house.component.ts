@@ -3,9 +3,9 @@ import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-user',
-  templateUrl: './user.component.html',
+  templateUrl: './house.component.html',
 })
-export class UserComponent  {
+export class HouseComponent  {
 
   searchText: string;
   filters: Object;

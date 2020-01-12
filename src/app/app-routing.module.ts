@@ -28,7 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'search-house',
-    loadChildren: () => import('./Components/Pages/house/search/components/user/user.module').then(module => module.UserModule)
+    loadChildren: () => import('./Components/Pages/house/search/components/house/house.module').then(module => module.HouseModule)
   }
 
 ];

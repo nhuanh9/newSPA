@@ -7,7 +7,7 @@
     <th>Age</th>
   </tr>
   <tbody>
-  <tr *ngFor="let user of filteredUsers | filter: searchByKeyword: 'name'">
+  <tr *ngFor="let user of filteredHouses | filter: searchByKeyword: 'name'">
     <td>{{ user.firstName}}</td>
     <td>{{ user.lastName}}</td>
     <td>{{ user.level}}</td>

@@ -1,8 +1,8 @@
 import { RouterModule, Routes } from '@angular/router';
-import { UserComponent } from './user.component';
+import { HouseComponent } from './house.component';
 
 const routes: Routes = [
-  { path: '', component: UserComponent }
+  { path: '', component: HouseComponent }
 ];
 
 export const UserRoutes = RouterModule.forChild(routes);

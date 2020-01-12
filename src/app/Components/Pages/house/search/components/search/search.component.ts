@@ -1,6 +1,6 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormGroup, FormControl, FormBuilder} from '@angular/forms';
-import {UserService} from '../../services/user.service';
+import {HouseService} from '../../services/house.service';
 
 
 @Component({
@@ -24,7 +24,7 @@ export class SearchComponent implements OnInit {
   searchText: string = '';
 
   constructor(private fb: FormBuilder,
-              private userService: UserService) {
+              private userService: HouseService) {
   }
 
   ngOnInit(): void {
