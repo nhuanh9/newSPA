@@ -26,7 +26,7 @@ export class UserListComponent implements OnChanges {
   }
 
   filterUserList(filters: any, users: any): void {
-    this.filteredUsers = this.users; //Reset User List
+    this.filteredUsers = this.users;
     const keys = Object.keys(filters);
     const filterUser = user => {
       let result = keys.map(key => {
