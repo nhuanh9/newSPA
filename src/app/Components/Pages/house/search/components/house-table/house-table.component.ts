@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges, ChangeDetectorRef} from '@angular/core';
 import {HouseService} from '../../services/house.service';
+import {SearchServiceService} from '../../services/search-service.service';
 
 @Component({
   selector: 'app-house-table',
@@ -12,7 +13,8 @@ export class HouseTableComponent implements OnChanges {
   filteredHouses: any[] = [];
 
   constructor(private houseService: HouseService,
-              private ref: ChangeDetectorRef) {
+              private ref: ChangeDetectorRef,
+              private searchService: SearchServiceService) {
   }
 
   ngOnInit(): void {
@@ -60,8 +62,14 @@ export class HouseTableComponent implements OnChanges {
   }
 
   loadHouses(): void {
-    this.houseService.fetchHouses()
-      .subscribe(houses => this.houses = houses);
+    // this.houseService.fetchHouses()
+    //   .subscribe(houses => this.houses = houses);
+    this.searchService.getList().subscribe(result => {
+      this.houses = result;
+      console.log(result);
+    }, error => {
+      console.log('Loi!');
+    });
     this.filteredHouses = this.filteredHouses.length > 0 ? this.filteredHouses : this.houses;
   }
 }
