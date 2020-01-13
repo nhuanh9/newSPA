@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges, ChangeDetectorRef, OnInit} from '@angular/core';
 import {HouseService} from '../../../services/house.service';
+import {SearchServiceService} from '../../../services/search-service.service';
 
 
 @Component({
@@ -13,7 +14,8 @@ export class HouseTableComponent implements OnChanges, OnInit {
   filteredHouses: any[] = [];
 
   constructor(private houseService: HouseService,
-              private ref: ChangeDetectorRef) {
+              private ref: ChangeDetectorRef,
+              private searchService: SearchServiceService) {
   }
 
   ngOnInit(): void {
@@ -31,7 +33,7 @@ export class HouseTableComponent implements OnChanges, OnInit {
     const keys = Object.keys(filters);
     const filterHouse = house => {
       let result = keys.map(key => {
-        if (!~key.indexOf('age')) {
+        if (!~key.indexOf('price')) {
           if (house[key]) {
             return String(house[key]).toLowerCase().startsWith(String(filters[key]).toLowerCase());
           } else {
@@ -42,9 +44,9 @@ export class HouseTableComponent implements OnChanges, OnInit {
 // To Clean Array from undefined if the age is passed so the map will fill the gap with (undefined)
       result = result.filter(it => it !== undefined);
 // Filter the Age out from the other filters
-      if (filters['ageto'] && filters['agefrom']) {
-        if (house['age']) {
-          if (+house['age'] >= +filters['agefrom'] && +house['age'] <= +filters['ageto']) {
+      if (filters['priceto'] && filters['pricefrom']) {
+        if (house['price']) {
+          if (+house['price'] >= +filters['pricefrom'] && +house['price'] <= +filters['priceto']) {
             result.push(true);
           } else {
             result.push(false);
@@ -61,8 +63,14 @@ export class HouseTableComponent implements OnChanges, OnInit {
   }
 
   loadHouses(): void {
-    this.houseService.fetchHouses()
-      .subscribe(houses => this.houses = houses);
+    // this.houseService.fetchHouses()
+    //   .subscribe(houses => this.houses = houses);
+    this.searchService.getList().subscribe(result => {
+      this.houses = result;
+      console.log(result);
+    }, error => {
+      console.log('Loi!');
+    });
     this.filteredHouses = this.filteredHouses.length > 0 ? this.filteredHouses : this.houses;
   }
 }

@@ -16,10 +16,6 @@ import {HouseService} from '../../services/house.service';
 })
 export class SearchComponent implements OnInit {
   form: FormGroup;
-  levels = [
-    'Beginner',
-    'Expert',
-  ];
   @Output() groupFilters: EventEmitter<any> = new EventEmitter<any>();
   searchText: string = '';
 
@@ -33,12 +29,12 @@ export class SearchComponent implements OnInit {
 
   buildForm(): void {
     this.form = this.fb.group({
-      firstName: new FormControl(''),
-      lastName: new FormControl(''),
-      jobTitle: new FormControl(''),
-      level: new FormControl(''),
-      agefrom: new FormControl(''),
-      ageto: new FormControl('')
+      nameHouse: new FormControl(''),
+      address: new FormControl(''),
+      amountBathRoom: new FormControl(''),
+      amountBedRoom: new FormControl(''),
+      pricefrom: new FormControl(''),
+      priceto: new FormControl('')
     });
   }
 

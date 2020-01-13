@@ -4,39 +4,45 @@
   <div class="row">
     <div class="col-md-6">
       <input type="text"
-             formControlName="firstName"
+             formControlName="nameHouse"
              class="form-control"
-             placeholder="First Name"/>
+             placeholder="Name House"/>
     </div>
     <div class="col-md-6">
       <input type="text"
-             formControlName="lastName"
+             formControlName="address"
              class="form-control"
-             placeholder="Last Name"/>
+             placeholder="Address"/>
     </div>
     <div class="col-md-6">
       <input type="text"
-             formControlName="jobTitle"
+             formControlName="amountBathRoom"
              class="form-control"
-             placeholder="Job Title"/>
-    </div>
-    <div class="col-md-6 col-sm-6">
-      <select ngDefaultControl class="form-control" formControlName="level">
-        <option value=""> Level</option>
-        <option [ngValue]="level" *ngFor="let level of levels">{{level}}</option>
-      </select>
+             placeholder="Amount BathRoom"/>
     </div>
     <div class="col-md-6">
       <input type="text"
-             formControlName="agefrom"
+             formControlName="amountBedRoom"
              class="form-control"
-             placeholder="age from"/>
+             placeholder="Amount Bedroom"/>
+    </div>
+<!--    <div class="col-md-6 col-sm-6">-->
+<!--      <select ngDefaultControl class="form-control" formControlName="level">-->
+<!--        <option value=""> Level</option>-->
+<!--        <option [ngValue]="level" *ngFor="let level of levels">{{level}}</option>-->
+<!--      </select>-->
+<!--    </div>-->
+    <div class="col-md-6">
+      <input type="text"
+             formControlName="pricefrom"
+             class="form-control"
+             placeholder="Price from"/>
     </div>
     <div class="col-md-6">
       <input type="text"
-             formControlName="ageto"
+             formControlName="priceto"
              class="form-control"
-             placeholder="age to"/>
+             placeholder="Price to"/>
     </div>
     <div class="col-md-12 col-sm-12">
       <button class="btn btn-primary float-right"
