@@ -5,6 +5,7 @@ import {AuthGuard} from '../helper/auth-guard';
 import {ListHouseComponent} from '../Components/Pages/house/list-house/list-house.component';
 import {DetailHouseComponent} from '../Components/Pages/house/detail-house/detail-house.component';
 import {CreateHouseComponent} from '../Components/Pages/house/create-house/create-house.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 const routing: Routes = [
   {
@@ -26,8 +27,9 @@ const routing: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routing)
+    RouterModule.forChild(routing),
+    ReactiveFormsModule
   ]
 })
-export class ExamModule {
+export class HouseModule {
 }
