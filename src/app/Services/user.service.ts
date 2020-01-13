@@ -5,7 +5,7 @@ import {User} from '../model/user';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment.prod';
 
-const API_URL = `${environment.apiUrl}`;
+const API_URL = `https://demo-project-spa.herokuapp.com`;
 
 @Injectable({
   providedIn: 'root'
