@@ -8,7 +8,7 @@ import {CategoryRoom} from '../model/categoryRoom';
   providedIn: 'root'
 })
 export class CategoryRoomService {
-  API_URL = 'https://spa-hometay.herokuapp.com/categoryRoom';
+  API_URL = 'http://localhost:8000/categoryRoom';
 
   constructor(private http: HttpClient) {
   }

@@ -7,7 +7,7 @@ import {House} from '../model/House';
   providedIn: 'root'
 })
 export class HouseService {
-  API_URL = 'https://spa-hometay.herokuapp.com/host';
+  API_URL = 'http://localhost:8000/host';
 
   constructor(private http: HttpClient) {
   }

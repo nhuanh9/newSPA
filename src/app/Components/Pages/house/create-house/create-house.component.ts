@@ -9,6 +9,8 @@ import {CategoryHouse} from '../../../../model/categoryHouse';
 import {CategoryRoom} from '../../../../model/categoryRoom';
 import {CategoryHouseService} from '../../../../Services/category-house.service';
 import {CategoryRoomService} from '../../../../Services/category-room.service';
+import {AuthenticationService} from '../../../../Services/authentication.service';
+import {UserService} from '../../../../Services/user.service';
 
 @Component({
   selector: 'app-create-house',
@@ -20,7 +22,7 @@ export class CreateHouseComponent implements OnInit {
   house: House;
   arrayPicture = '';
   createForm: FormGroup;
-  listCategoryRoom: CategoryRoom[];
+
   listCategoryHouse: CategoryHouse[];
 
   constructor(private houseService: HouseService,
@@ -28,19 +30,23 @@ export class CreateHouseComponent implements OnInit {
               private db: AngularFireDatabase,
               private fb: FormBuilder,
               private categoryHouse: CategoryHouseService,
+              private authenticationService: AuthenticationService,
+              private userService: UserService
               // private categoryRoom: CategoryRoomService,
   ) {
   }
 
   ngOnInit() {
     this.createForm = this.fb.group({
+      hostName: ['', [Validators.required]],
       nameHouse: ['', [Validators.required]],
       categoryHouse: ['', [Validators.required]],
       // categoryRoom: ['', [Validators.required]],
       address: ['', [Validators.required]],
       amountBathRoom: ['', [Validators.required]],
       amountBedRoom: ['', [Validators.required]],
-      price: ['', [Validators.required]],
+      gender: ['', [Validators.required]],
+      rooms: ['', [Validators.required]],
       description: ['', [Validators.required]]
     });
     this.categoryHouse.getList().subscribe(next => {
@@ -52,28 +58,50 @@ export class CreateHouseComponent implements OnInit {
   }
 
   transferFormData() {
-    this.house = {
-      nameHouse: this.createForm.get('nameHouse').value,
-      categoryHouse: this.createForm.get('categoryHouse').value,
-      // categoryRoom: this.createForm.get('categoryRoom').value,
-      address: this.createForm.get('address').value,
-      amountBathRoom: this.createForm.get('amountBathRoom').value,
-      amountBedRoom: this.createForm.get('amountBedRoom').value,
-      price: null,
-      description: this.createForm.get('description').value,
-      statusHouse: true,
-      imageUrls: this.arrayPicture
-    };
+    this.authenticationService.currentUser.subscribe(value => {
+      this.house = {
+        hostName: this.createForm.get('hostName').value,
+        nameHouse: this.createForm.get('nameHouse').value,
+        categoryHouse: {
+          id: this.createForm.get('categoryHouse').value
+        },
+        // categoryRoom: this.createForm.get('categoryRoom').value,
+        amountBathRoom: this.createForm.get('amountBathRoom').value,
+        amountBedRoom: this.createForm.get('amountBedRoom').value,
+        address: this.createForm.get('address').value,
+        description: this.createForm.get('description').value,
+        imageUrls: this.arrayPicture
+      };
+      this.userService.userDetail(value.id + '').subscribe(result => {
+        this.house.hostName = result.username;
+      });
+    });
   }
 
   createHouse() {
-    this.transferFormData();
-    console.log(this.house);
-    this.houseService.create(this.house).subscribe(() => {
-      console.log('Thêm thành công!');
-      this.router.navigate(['/']);
-    }, error1 => {
-      console.log('Lỗi ' + error1);
+    this.authenticationService.currentUser.subscribe(value => {
+      this.house = {
+        hostName: this.createForm.get('hostName').value,
+        nameHouse: this.createForm.get('nameHouse').value,
+        categoryHouse: {
+          id: this.createForm.get('categoryHouse').value
+        },
+        // categoryRoom: this.createForm.get('categoryRoom').value,
+        amountBathRoom: this.createForm.get('amountBathRoom').value,
+        amountBedRoom: this.createForm.get('amountBedRoom').value,
+        address: this.createForm.get('address').value,
+        description: this.createForm.get('description').value,
+        imageUrls: this.arrayPicture
+      };
+      this.userService.userDetail(value.id + '').subscribe(result => {
+        this.house.hostName = result.username;
+        this.houseService.create(this.house).subscribe(() => {
+          console.log('Thêm thành công!');
+          this.router.navigate(['/']);
+        }, error1 => {
+          console.log('Lỗi ' + error1);
+        });
+      });
     });
   }
 
