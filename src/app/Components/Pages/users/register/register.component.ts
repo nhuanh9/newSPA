@@ -34,21 +34,21 @@ export class RegisterComponent implements OnInit {
 
   register() {
     const user: User = {
-      id: this.registerForm.value.id,
       username: this.registerForm.value.username,
       password: this.registerForm.value.password,
       confirmPassword: this.registerForm.value.confirmPassword,
       firstName: this.registerForm.value.firstName,
       lastName: this.registerForm.value.lastName,
-      gender: this.registerForm.value.gender,
       email: this.registerForm.value.email,
-      phoneNumber: this.registerForm.value.phoneNumber
+      phoneNumber: this.registerForm.value.phoneNumber,
+      gender: this.registerForm.value.gender
     };
     this.userService.register(user).subscribe(() => {
-      this.successMessage = 'Đăng ký thành công';
+      console.log('Đăng ký thành công');
       this.registerForm.reset();
-    }, () => {
-      this.failMessage = 'Đăng ký thất bại';
+    }, err => {
+      console.log(err);
     });
+    console.log(user);
   }
 }
