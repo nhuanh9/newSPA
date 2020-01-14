@@ -8,7 +8,7 @@ import {CategoryHouse} from '../model/categoryHouse';
   providedIn: 'root'
 })
 export class CategoryHouseService {
-  API_URL = 'https://demo-project-spa.herokuapp.com/category/house';
+  API_URL = 'https://spa-hometay.herokuapp.com/categoryHouse';
 
   constructor(private http: HttpClient) {
   }

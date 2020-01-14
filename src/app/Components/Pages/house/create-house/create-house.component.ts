@@ -28,7 +28,7 @@ export class CreateHouseComponent implements OnInit {
               private db: AngularFireDatabase,
               private fb: FormBuilder,
               private categoryHouse: CategoryHouseService,
-              private categoryRoom: CategoryRoomService,
+              // private categoryRoom: CategoryRoomService,
   ) {
   }
 
@@ -36,7 +36,7 @@ export class CreateHouseComponent implements OnInit {
     this.createForm = this.fb.group({
       nameHouse: ['', [Validators.required]],
       categoryHouse: ['', [Validators.required]],
-      categoryRoom: ['', [Validators.required]],
+      // categoryRoom: ['', [Validators.required]],
       address: ['', [Validators.required]],
       amountBathRoom: ['', [Validators.required]],
       amountBedRoom: ['', [Validators.required]],
@@ -46,16 +46,16 @@ export class CreateHouseComponent implements OnInit {
     this.categoryHouse.getList().subscribe(next => {
       this.listCategoryHouse = next;
     });
-    this.categoryRoom.getList().subscribe(next => {
-      this.listCategoryRoom = next;
-    });
+    // this.categoryRoom.getList().subscribe(next => {
+    //   this.listCategoryRoom = next;
+    // });
   }
 
   transferFormData() {
     this.house = {
       nameHouse: this.createForm.get('nameHouse').value,
       categoryHouse: this.createForm.get('categoryHouse').value,
-      categoryRoom: this.createForm.get('categoryRoom').value,
+      // categoryRoom: this.createForm.get('categoryRoom').value,
       address: this.createForm.get('address').value,
       amountBathRoom: this.createForm.get('amountBathRoom').value,
       amountBedRoom: this.createForm.get('amountBedRoom').value,

@@ -1,50 +1,41 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+
+import {User} from '../model/user';
 import {Observable} from 'rxjs';
-import {House} from '../model/House';
-import {UserHouse} from '../model/userHouse';
+import {environment} from '../../environments/environment.prod';
+
+const API_URL = `https://spa-hometay.herokuapp.com`;
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  users: UserHouse[];
 
-  getList() {
-    return this.users;
+  constructor(private http: HttpClient) {
   }
 
-  createUser(user: UserHouse) {
-    this.users.push(user);
+  register(user: User): Observable<User> {
+    return this.http.post<User>(API_URL + '/register', user);
   }
 
-  detailUser(id: string): UserHouse {
-    return this.users[id];
+  registerSuccess(token: string): Observable<any> {
+    return this.http.get<any>(API_URL + '/confirm-account?token=' + token);
   }
 
-  // API_URL = 'https://spa-homestay.herokuapp.com/host';
-  //
-  // constructor(private http: HttpClient) {
-  // }
-  //
-  // getList(): Observable<UserHouse[]> {
-  //   return this.http.get<UserHouse[]>(this.API_URL);
-  // }
-  //
-  // create(user): Observable<UserHouse> {
-  //   return this.http.post<UserHouse>(this.API_URL, user);
-  // }
-  //
-  // detail(id: string): Observable<UserHouse> {
-  //   return this.http.get<UserHouse>(this.API_URL + `/${id}`);
-  // }
-  //
-  // edit(user: UserHouse, id: string): Observable<UserHouse> {
-  //   return this.http.put<UserHouse>(this.API_URL + `/${id}`, user);
-  // }
-  //
-  // delete(id: string): Observable<UserHouse> {
-  //   return this.http.delete<UserHouse>(this.API_URL + `/${id}`);
+  login(user: User): Observable<User> {
+    return this.http.post<User>(API_URL + '/login', user);
+  }
+
+  // passwordForgot(forgotPassword: ForgotPassword): Observable<ForgotPassword> {
+  //   return this.http.post<ForgotPassword>(API_URL + '/forgot-password', forgotPassword);
   // }
 
+  newPassword(user: User, id: number, token: string): Observable<User> {
+    return this.http.post<User>(API_URL + `/new-password/${id}?token=` + token, user);
+  }
+
+  userDetail(id: string): Observable<User> {
+    return this.http.get<User>(API_URL + `/users/${id}`);
+  }
 }

@@ -13,8 +13,10 @@ export const environment = {
     messagingSenderId: '944237622450',
     appId: '1:944237622450:web:3a5316ec1584e4589485ab',
     measurementId: 'G-4DQHY2CY4G'
-  }
+  },
+  apiUrl: 'https://demo-project-spa.herokuapp.com'
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

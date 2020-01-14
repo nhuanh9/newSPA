@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {UserService} from '../../../../Services/user.service';
 import {UserHouse} from '../../../../model/userHouse';
 import {forEachComment} from 'tslint';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AuthenticationService} from '../../../../Services/authentication.service';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -11,31 +13,39 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  users: UserHouse[];
-
-  loginForm: FormGroup;
-
-  constructor(private fb: FormBuilder, private userService: UserService, private  router: Router) {
+  loginForm: FormGroup = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl('')
+  });
+  returnUrl: string;
+  error = '';
+  loading = false;
+  submitted = false;
+  constructor(private activatedRoute: ActivatedRoute,
+              private router: Router,
+              private authenticationService: AuthenticationService) {
+    if (this.authenticationService.currentUserValue) {
+      this.router.navigate(['/']);
+    }
   }
 
   ngOnInit() {
-    this.loginForm = this.fb.group({
-      username: [''],
-      password: [''],
-    });
-    this.users = this.userService.getList();
+    this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl || '/';
   }
 
   login() {
-    this.users.forEach((user) => {
-      if (user.username === this.loginForm.get('username').value) {
-        if (user.password === this.loginForm.get('password').value) {
-          alert('Hello ' + user.firstName);
-          this.router.navigate(['/']);
-        } else {
-          alert('Sai mat khau!');
-        }
-      }
-    });
+    this.submitted = true;
+    this.loading = true;
+    this.authenticationService.login(this.loginForm.value.username, this.loginForm.value.password)
+      .pipe(first())
+      .subscribe(
+        data => {
+          localStorage.setItem('ACCESS_TOKEN', data.accessToken);
+          this.router.navigate([this.returnUrl]);
+        },
+        error => {
+          this.error = 'Sai tên đăng nhập hoặc mật khẩu';
+          this.loading = false;
+        });
   }
 }

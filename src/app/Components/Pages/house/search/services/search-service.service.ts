@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {House} from '../model/House';
+import {House} from '../../../../../model/House';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HouseService {
+export class SearchServiceService {
   API_URL = 'https://spa-hometay.herokuapp.com/host';
 
   constructor(private http: HttpClient) {
@@ -31,5 +31,4 @@ export class HouseService {
   delete(id: string): Observable<House> {
     return this.http.delete<House>(this.API_URL + `/${id}`);
   }
-
 }

@@ -29,8 +29,6 @@ import { LoginComponent } from './Components/Pages/users/login/login.component';
     RegisterComponent,
     CarouselComponent,
     FooterComponent,
-    DetailHouseComponent,
-    CreateHouseComponent,
     LoginComponent
   ],
   imports: [

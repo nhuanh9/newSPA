@@ -6,6 +6,7 @@ import {DetailHouseComponent} from './Components/Pages/house/detail-house/detail
 import {CreateHouseComponent} from './Components/Pages/house/create-house/create-house.component';
 import {CarouselComponent} from './Components/Blocks/carousel/carousel.component';
 import {LoginComponent} from './Components/Pages/users/login/login.component';
+import {AuthGuard} from './helper/auth-guard';
 
 
 const routes: Routes = [
@@ -14,26 +15,22 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
     path: '',
     component: ListHouseComponent
   },
   {
-    path: 'detail-house/:id',
-    component: DetailHouseComponent
+    path: 'login',
+    component: LoginComponent
   },
   {
-    path: 'create-house',
-    component: CreateHouseComponent
+    path: 'user',
+    loadChildren: () => import('./module/user.module').then(module => module.UserModule)
   },
   {
-    path: 'carousel',
-    component: CarouselComponent,
-    outlet: 'carousel'
+    path: 'search-house',
+    loadChildren: () => import('./Components/Pages/house/search/components/house/house.module').then(module => module.HouseModule)
   }
+
 ];
 
 @NgModule({
