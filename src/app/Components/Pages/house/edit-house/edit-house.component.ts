@@ -108,7 +108,6 @@ export class EditHouseComponent implements OnInit {
         imageUrls: this.arrayPicture
       };
       this.userService.userDetail(value.id + '').subscribe(result => {
-        this.house.hostName = result.username;
         this.houseService.edit(this.house, this.idHouse).subscribe(() => {
           console.log('Sửa thành công!');
           this.router.navigate(['/']);
