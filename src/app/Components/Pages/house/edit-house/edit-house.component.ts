@@ -26,7 +26,7 @@ export class EditHouseComponent implements OnInit {
   editForm: FormGroup;
   sub: Subscription;
   rooms: Room[];
-
+  idHouse: any;
   listCategoryHouse: CategoryHouse[];
 
   constructor(private houseService: HouseService,
@@ -46,6 +46,7 @@ export class EditHouseComponent implements OnInit {
       const id = paraMap.get('id');
       this.houseService.detail(id).subscribe(next => {
         this.house = next;
+        this.idHouse = this.house.id;
       }, error1 => {
         console.log(error1);
       });
@@ -108,8 +109,8 @@ export class EditHouseComponent implements OnInit {
       };
       this.userService.userDetail(value.id + '').subscribe(result => {
         this.house.hostName = result.username;
-        this.houseService.create(this.house).subscribe(() => {
-          console.log('Thêm thành công!');
+        this.houseService.edit(this.house, this.idHouse).subscribe(() => {
+          console.log('Sửa thành công!');
           this.router.navigate(['/']);
         }, error1 => {
           console.log('Lỗi ' + error1);
