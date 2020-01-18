@@ -3,6 +3,8 @@ import {House} from '../../../../model/House';
 import {Subscription} from 'rxjs';
 import {HouseService} from '../../../../Services/house.service';
 import {ActivatedRoute, ParamMap} from '@angular/router';
+import {RoomService} from '../../../../Services/room.service';
+import {Room} from '../../../../model/room';
 
 @Component({
   selector: 'app-detail-house',
@@ -13,9 +15,11 @@ export class DetailHouseComponent implements OnInit {
 
   house: House;
   sub: Subscription;
+  rooms: Room[];
 
   constructor(private houseService: HouseService,
-              private activateRoute: ActivatedRoute) {
+              private activateRoute: ActivatedRoute,
+              private  roomService: RoomService) {
   }
 
   ngOnInit() {
@@ -25,6 +29,12 @@ export class DetailHouseComponent implements OnInit {
         this.house = next;
       }, error1 => {
         console.log(error1);
+      });
+      this.roomService.getList().subscribe(next => {
+        this.rooms = next;
+        console.log(this.rooms);
+      }, error => {
+        console.log(error);
       });
     });
   }
@@ -36,4 +46,6 @@ export class DetailHouseComponent implements OnInit {
       console.log('Lỗi ' + error1);
     });
   }
+
+
 }

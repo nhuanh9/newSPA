@@ -18,6 +18,8 @@ import {environment} from '../environments/environment';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import { LoginComponent } from './Components/Pages/users/login/login.component';
+import { ListRoomComponent } from './Components/Pages/room/list-room/list-room.component';
+import { EditHouseComponent } from './Components/Pages/house/edit-house/edit-house.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { LoginComponent } from './Components/Pages/users/login/login.component';
     RegisterComponent,
     CarouselComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    ListRoomComponent
   ],
   imports: [
     BrowserModule,

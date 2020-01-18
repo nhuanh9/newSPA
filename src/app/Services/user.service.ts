@@ -5,7 +5,7 @@ import {User} from '../model/user';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment.prod';
 
-const API_URL = `http://localhost:8000`;
+const API_URL = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'

@@ -2,12 +2,13 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {House} from '../../../../../model/House';
+import {environment} from '../../../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchServiceService {
-  API_URL = 'https://spa-hometay.herokuapp.com/host';
+  API_URL = environment.apiUrl + '/house';
 
   constructor(private http: HttpClient) {
   }

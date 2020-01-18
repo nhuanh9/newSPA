@@ -2,10 +2,10 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {AuthGuard} from '../helper/auth-guard';
-import {ListHouseComponent} from '../Components/Pages/house/list-house/list-house.component';
 import {DetailHouseComponent} from '../Components/Pages/house/detail-house/detail-house.component';
 import {CreateHouseComponent} from '../Components/Pages/house/create-house/create-house.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {EditHouseComponent} from '../Components/Pages/house/edit-house/edit-house.component';
 
 const routing: Routes = [
   {
@@ -18,12 +18,18 @@ const routing: Routes = [
     component: CreateHouseComponent,
     canActivate: [AuthGuard]
   },
+  {
+    path: 'edit-house/:id',
+    component: EditHouseComponent,
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({
   declarations: [
     DetailHouseComponent,
-    CreateHouseComponent
+    CreateHouseComponent,
+    EditHouseComponent
   ],
   imports: [
     CommonModule,
