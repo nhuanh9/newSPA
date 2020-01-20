@@ -12,6 +12,7 @@ import * as firebase from 'firebase';
 import {RoomService} from '../../../../Services/room.service';
 import {Subscription} from 'rxjs';
 import {Room} from '../../../../model/room';
+import {User} from '../../../../model/user';
 
 @Component({
   selector: 'app-edit-house',
@@ -95,20 +96,20 @@ export class EditHouseComponent implements OnInit {
 
   editHouse() {
     this.authenticationService.currentUser.subscribe(value => {
-      this.house = {
-        hostName: this.editForm.get('hostName').value,
-        nameHouse: this.editForm.get('nameHouse').value,
-        categoryHouse: {
-          id: this.editForm.get('categoryHouse').value
-        },
-        amountBathRoom: this.editForm.get('amountBathRoom').value,
-        amountBedRoom: this.editForm.get('amountBedRoom').value,
-        address: this.editForm.get('address').value,
-        description: this.editForm.get('description').value,
-        imageUrls: this.arrayPicture
-      };
       this.userService.userDetail(value.id + '').subscribe(result => {
-        this.houseService.edit(this.house, this.idHouse).subscribe(() => {
+        const house: House = {
+          hostName: this.editForm.get('hostName').value,
+          nameHouse: this.editForm.get('nameHouse').value,
+          categoryHouse: {
+            id: this.editForm.get('categoryHouse').value
+          },
+          amountBathRoom: this.editForm.get('amountBathRoom').value,
+          amountBedRoom: this.editForm.get('amountBedRoom').value,
+          address: this.editForm.get('address').value,
+          description: this.editForm.get('description').value,
+          imageUrls: this.arrayPicture
+        };
+        this.houseService.edit(house, this.idHouse).subscribe(() => {
           console.log('Sửa thành công!');
           this.router.navigate(['/']);
         }, error1 => {
